@@ -1,7 +1,7 @@
 use crate::card::Card;
 
 pub struct Hand {
-    hand: Vec<Card>,
+    pub hand: Vec<Card>,
 }
 
 impl Default for Hand {
@@ -23,5 +23,19 @@ impl Hand {
         }
 
         hand_total
+    }
+
+    pub fn to_string(&self, is_house: bool) -> String {
+        let mut hand_str = String::from("");
+        if is_house {
+            hand_str.push_str(&self.hand[0].to_string());
+            hand_str
+        } else {
+            for card in &self.hand {
+                hand_str.push_str(&card.to_string());
+                hand_str.push_str(", ");
+            }
+            hand_str
+        }
     }
 }

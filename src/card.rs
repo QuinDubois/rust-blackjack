@@ -30,7 +30,7 @@ pub struct Card {
 }
 
 impl Card {
-    pub fn construct_name_str(&self) -> String {
+    pub fn to_string(&self) -> String {
         let name = match &self.suit {
             Suit::Spade => String::from("Spades"),
             Suit::Diamond => String::from("Diamonds"),
